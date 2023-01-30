@@ -37,6 +37,14 @@ $bg-4: #F9FAFB;
 $dark: #000;
 $white: #fff;
 
-// **************************//
+// Shadow Cards
+$shadow-1: 0px 23px 44px rgba(177, 183, 194, 0.141176);
+$shadow-2: 0px 0px 62px rgba(177, 183, 194, 0.239216);
+$shadow-3: 0px 44px 65px rgba(177, 183, 194, 0.188235);
+$shadow-4: 0px 50px 77px rgba(177, 183, 194, 0.219608);
 
-// 
+// Shadow Forms
+$shadow-danger: 0px 12px 23px rgba(236, 98, 64, 0.0588235);
+$shadow-primary: 0px 12px 23px rgba(74, 123, 247, 0.0588235);
+$shadow-success: 0px 12px 23px rgba(104, 200, 142, 0.0588235);
+$shadow-warning: 0px 12px 23px rgba(243, 175, 61, 0.0588235);
