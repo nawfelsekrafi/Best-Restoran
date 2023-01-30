@@ -1,0 +1,109 @@
+@mixin heading-1 {
+    font-size: 80px;
+    font-weight: 700;
+}
+
+@mixin heading-2 {
+    font-size: 60px;
+    font-weight: 700;
+}
+
+@mixin heading-3 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+@mixin heading-4 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+@mixin heading-5 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+@mixin heading-6 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+@mixin heading-7 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+@mixin heading-8 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+@mixin heading-9 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@mixin heading-10 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@mixin body-1 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+@mixin body-2 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+@mixin bold-body-1 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+@mixin bold-body-2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+@mixin small-1 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@mixin small-2 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+@mixin small-3 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+@mixin small-4 {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+@mixin bold-small-1 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+@mixin bold-small-2 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@mixin bold-small-3 {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+@mixin bold-small-4 {
+    font-size: 10px;
+    font-weight: 600;
+}
