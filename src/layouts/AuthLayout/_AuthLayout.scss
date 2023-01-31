@@ -1,4 +1,50 @@
+@use "./../../assets/styles/base" as *;
+
 .auth_layout {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    .left_container{
+        width: 48.75%;
+        height: 100%;
+        background: $primary-green;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .top{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            >img:first-child{
+                padding-left: 40px;
+            }
+        }
+        .dots-1{
+           margin-top: -8px;
+           margin-right: -8px;
+        } 
+        .middle {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 0;
+            .main-heading {
+                @include heading-5;
+                color: $typography-text-2;
+                margin: 0px 0px 126px 92px;
+            }
+            img {
+                width: 76.35%;
+                right: -20px;
+                z-index: 1;
+                position: absolute;
+                bottom: -126px;
+            }
+        } 
+        .bottom {
+            .dots-2{
+                margin: 0px 0px -29px -24px;
+            }
+        }     
+    }
 }
