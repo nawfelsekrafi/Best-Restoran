@@ -32,14 +32,14 @@
       .main-heading {
         @include heading-5;
         color: $typography-text-2;
-        margin: 0px 0px 126px 92px;
+        margin: 0px 0px 300px 92px;
       }
       img {
         width: 76.35%;
         right: -20px;
         z-index: 1;
         position: absolute;
-        bottom: -126px;
+        bottom: 0px;
       }
     }
     .bottom {
