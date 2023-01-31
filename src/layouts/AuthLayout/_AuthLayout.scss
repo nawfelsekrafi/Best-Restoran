@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    .left_container{
+    .fixed_container{
         width: 48.75%;
         height: 100%;
         background: $primary-green;
@@ -15,6 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            overflow: hidden;
             >img:first-child{
                 padding-left: 40px;
             }
@@ -42,9 +43,16 @@
             }
         } 
         .bottom {
+            overflow: hidden;
             .dots-2{
                 margin: 0px 0px -29px -24px;
             }
         }     
     }
+    .outlet_container {
+        width: 51.25%;
+        height: 100%;
+        padding: 120px 144px;
+    }
+
 }
