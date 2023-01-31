@@ -19,6 +19,7 @@ const RoutesProvider = () => {
         <Routes>
           <Route path="/auth" element={<AuthLayout />}>
             <Route index element={<LoginView />} />
+            <Route path="login" element={<LoginView />} />
             <Route path="register" element={<RegisterView />} />
           </Route>
           {/* Users Routes */}
