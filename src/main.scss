@@ -1,8 +1,11 @@
-@use "./assets/styles/base/base";
+@use "./assets/styles/base" as *;
+@use "./assets/styles/abstracts" as *;
 
 // Layouts
 @use "./layouts/MainLayout";
 @use "./layouts/GuestLayout";
+@use "./layouts/AuthLayout";
 
 // Components
 @use "./shared/components/NotFound";
+@use "./views/auth/Login";
