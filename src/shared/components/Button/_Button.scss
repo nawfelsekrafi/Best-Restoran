@@ -1,0 +1,22 @@
+@use "./../../../assets/styles/base" as *;
+.button_container {
+  background: $primary-green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 41px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  .label {
+    @include small-1;
+    color: $typography-text-2;
+    line-height: 28px;
+  }
+  &.disabled {
+    background: $typography-text-3;
+    cursor: not-allowed;
+  }
+}
