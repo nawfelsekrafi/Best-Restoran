@@ -1,0 +1,30 @@
+@use "./../../../assets/styles/base" as *;
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  span {
+    color: $typography-text-1;
+    @include small-1;
+    line-height: 28px;
+  }
+  .checkbox {
+    display: inline-block;
+    border: 1px solid $bg-1;
+    border-radius: 5px;
+    height: 22px;
+    width: 22px;
+    background: $bg-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .checked {
+    background: $primary-green;
+  }
+  &:hover .checkbox {
+    border: 1px solid $primary-green;
+  }
+}
