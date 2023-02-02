@@ -11,7 +11,7 @@ const RoutesProvider = () => {
   const HomeView = lazy(() => import("./views/Home"));
   const AboutView = lazy(() => import("./views/About"));
   const LoginView = lazy(() => import("./views/auth/Login"));
-  const RegisterView = lazy(() => import("./views/auth/Register"));
+  const ResetPassword = lazy(() => import("./views/auth/ResetPassword"));
 
   return (
     <BrowserRouter>
@@ -20,14 +20,13 @@ const RoutesProvider = () => {
           <Route path="/auth" element={<AuthLayout />}>
             <Route index element={<LoginView />} />
             <Route path="login" element={<LoginView />} />
-            <Route path="register" element={<RegisterView />} />
+            <Route path="reset-password" element={<ResetPassword />} />
           </Route>
           {/* Users Routes */}
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomeView />} />
             <Route path="about" element={<AboutView />} />
           </Route>
-
           {/* Uncreated Routes */}
           <Route path="*" element={<NotFoundView />} />
         </Routes>
