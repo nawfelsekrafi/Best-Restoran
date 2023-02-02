@@ -1,0 +1,53 @@
+@use "./../../../assets/styles/base" as *;
+.login_page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    .title {
+      color: $typography-text-1;
+      @include heading-7;
+    }
+    .description {
+      color: $typography-text-3;
+      @include body-2;
+    }
+  }
+  .description-2 {
+    margin-top: 38px;
+    color: $typography-text-3;
+    @include small-1;
+    line-height: 28px;
+    .email {
+      color: $primary-green;
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 396px;
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      width: 100%;
+    }
+    .check_with_password {
+      width: 396px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .forget_password {
+        color: $primary-green;
+        @include small-1;
+        cursor: pointer;
+      }
+    }
+  }
+}
