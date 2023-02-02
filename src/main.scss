@@ -8,4 +8,13 @@
 
 // Components
 @use "./shared/components/NotFound";
+@use "./shared/components/TextInput";
+@use "./shared/components/Checkbox";
+@use "./shared/components/RecaptchaV2";
+@use "./shared/components/Button";
+@use "./shared/components/StatusText";
+
+// Views
 @use "./views/auth/Login";
+@use "./views/auth/ResetPassword";
+@use "./views/auth/ForgetPasswordModal";
