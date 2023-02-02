@@ -1,0 +1,26 @@
+@use "./../../../assets/styles/base" as *;
+.statusText_container {
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 100%;
+    .label {
+      @include small-3;
+      line-height: 21px;
+    }
+    .error_text {
+      color: $system-danger;
+    }
+    .warning_text {
+      color: $system-warning;
+    }
+    .success_text {
+      color: $system-success;
+    }
+    .normal_text {
+      color: $typography-text-4;
+    }
+  }
+}
