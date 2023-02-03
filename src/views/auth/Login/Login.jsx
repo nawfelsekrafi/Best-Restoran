@@ -29,13 +29,6 @@ const validate = (values) => {
     });
   }
 
-  if (!values.password) {
-    errors.password.push({
-      status: "error",
-      text: "Lütfen bir şifre girin",
-    });
-  }
-
   if (!errors.email.length && !errors.password.length) {
     delete errors.email;
     delete errors.password;
@@ -82,9 +75,6 @@ export default function Login() {
               onChange={formik.handleChange}
               page="login"
               name="email"
-              status={
-                formik.errors.email?.length && formik.errors.email[0].status
-              }
               statusTexts={formik.errors.email}
             />
             <TextInput
@@ -95,10 +85,6 @@ export default function Login() {
               key="login-password"
               page="login"
               name="password"
-              status={
-                formik.errors.password?.length &&
-                formik.errors.password[0].status
-              }
               statusTexts={formik.errors.password}
             />
           </div>
@@ -115,11 +101,7 @@ export default function Login() {
             </span>
           </div>
           <RecaptchaV2 />
-          <Button
-            label="Giriş Yap"
-            type="submit"
-            disabled={Object.keys(formik.errors).length}
-          />
+          <Button label="Giriş Yap" type="submit" />
           <span className="description-2">
             Sisteme giriş yaparken bir sorun ile karşılaşıyorsanız lütfen{" "}
             <span className="email">yemekoperasyonekibi@migrosonline.com</span>{" "}

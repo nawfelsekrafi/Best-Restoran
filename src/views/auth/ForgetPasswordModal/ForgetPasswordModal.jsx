@@ -9,21 +9,22 @@ import checkIcon from "../../../assets/icons/check.svg";
 const initialValues = {
   email: "",
 };
-const onSubmit = (values) => {
-  console.log("Form data", values);
-};
 const validate = (values) => {
   let errors = {};
   errors.email = [];
 
   if (
-    values.email &&
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    (values.email &&
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) ||
+    !values.email
   ) {
     errors.email.push({
       status: "error",
       text: "Lütfen geçerli bir e-posta adresi girin.",
     });
+  }
+  if (!errors.email.length) {
+    delete errors.email;
   }
   return errors;
 };
@@ -35,6 +36,13 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
     minutes: 0,
     seconds: 179,
   });
+  const onSubmit = (values) => {
+    console.log("Form data", values);
+    if (!Object.keys(formik.errors).length) {
+      setEmailSent(true);
+      lunchTimer();
+    }
+  };
 
   const formik = useFormik({
     initialValues,
@@ -45,11 +53,6 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
   useEffect(() => {
     document.title = "Şifremi Unuttum | Restoran";
   }, []);
-
-  const handleClick = () => {
-    setEmailSent(true);
-    lunchTimer();
-  };
 
   useEffect(() => {
     setTime({
@@ -80,7 +83,7 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
           <span className="title">Şifremi Unuttum</span>
           <img src={closeIcon} alt="" onClick={() => closeModal()} />
         </div>
-        <div className="forget_form">
+        <form className="forget_form" onSubmit={formik.handleSubmit}>
           {!emailSent ? (
             <>
               <span>
@@ -93,10 +96,13 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
                 value={formik.values.email}
                 key="forgetPassword-email"
                 name="email"
+                status={
+                  formik.errors.email?.length && formik.errors.email[0].status
+                }
                 onChange={formik.handleChange}
                 statusTexts={formik.errors.email}
               />
-              <RecaptchaV2 />
+              <RecaptchaV2 onChange={(value) => console.log(value)} />
             </>
           ) : (
             <>
@@ -128,16 +134,20 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
             </>
           )}
           {!emailSent || !timeToWait ? (
-            <Button label="Gönder" onClick={() => handleClick()} />
+            <Button
+              label="Gönder"
+              disabled={Object.keys(formik.errors).length}
+              type="submit"
+            />
           ) : (
             <Button
-              isDisabled={true}
+              disabled={true}
               label={`Tekrar Gönder (${
                 time.minutes < 10 ? "0" + time.minutes : time.minutes
               }:${time.seconds < 10 ? "0" + time.seconds : time.seconds})`}
             />
           )}
-        </div>
+        </form>
       </div>
     </div>
   );
