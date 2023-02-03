@@ -55,3 +55,44 @@
     padding: 120px 144px;
   }
 }
+
+@media only screen and (max-width: 1350px) {
+  .auth_layout {
+    .outlet_container {
+      padding: 120px 50px;
+    }
+  }
+}
+@media only screen and (max-width: 944px) {
+  .auth_layout {
+    .fixed_container {
+      display: none;
+    }
+    .outlet_container {
+      width: 100%;
+      padding: 120px 50px;
+      > div:first-child {
+        align-items: center;
+        .header {
+          align-items: center;
+          .description {
+            text-align: center;
+          }
+        }
+        .form {
+          width: 100%;
+          .check_with_password {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .auth_layout {
+    .outlet_container {
+      padding: 20px 3%;
+    }
+  }
+}
