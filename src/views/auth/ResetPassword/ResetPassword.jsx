@@ -3,6 +3,22 @@ import { useFormik } from "formik";
 import Button from "../../../shared/components/Button";
 import TextInput from "../../../shared/components/TextInput";
 
+let defaultHelpers1 = [
+  { status: "normal", text: "En az 8 karakterden oluşmalıdır." },
+  {
+    status: "normal",
+    text: "En az bir büyük ve bir küçük harf içermelidir.",
+  },
+  { status: "normal", text: "En az bir rakam içermelidir." },
+];
+
+let defaultHelpers2 = [
+  {
+    status: "normal",
+    text: "Girilen şifre aynı olmalıdır.",
+  },
+];
+
 const initialValues = {
   password: "",
   password2: "",
@@ -53,10 +69,17 @@ const validate = (values) => {
     errors.password2[0].status = "error";
   }
   if (values.password2 && values.password2 === values.password) {
-    errors.password2[0] = {
-      status: "success",
-      text: "Girilen şifre aynı olmalıdır.",
-    };
+    errors.password2[0].status = "success";
+  }
+
+  if (
+    errors.password.every((e) => e.status === "success") &&
+    errors.password2.every((e) => e.status === "success")
+  ) {
+    delete errors.password;
+    delete errors.password2;
+    defaultHelpers1.forEach((e) => (e.status = "success"));
+    defaultHelpers2.forEach((e) => (e.status = "success"));
   }
   return errors;
 };
@@ -72,22 +95,6 @@ export default function ResetPassword() {
     document.title = "Şifre Yenileme | Restoran";
   }, []);
 
-  let defaultHelpers1 = [
-    { status: "normal", text: "En az 8 karakterden oluşmalıdır." },
-    {
-      status: "normal",
-      text: "En az bir büyük ve bir küçük harf içermelidir.",
-    },
-    { status: "normal", text: "En az bir rakam içermelidir." },
-  ];
-
-  let defaultHelpers2 = [
-    {
-      status: "normal",
-      text: "Girilen şifre aynı olmalıdır.",
-    },
-  ];
-
   return (
     <div className="password_page">
       <div className="header">
@@ -96,7 +103,7 @@ export default function ResetPassword() {
           Aşağıdaki alanlara yeni şifrenizi girerek değiştirebilirsiniz.
         </span>
       </div>
-      <div className="form">
+      <form className="form" onSubmit={formik.handleSubmit}>
         <div className="inputs">
           <TextInput
             label="Yeni Şifre"
@@ -124,8 +131,12 @@ export default function ResetPassword() {
             }
           />
         </div>
-        <Button label="Değişikliği Kaydet" />
-      </div>
+        <Button
+          label="Değişikliği Kaydet"
+          type="submit"
+          disabled={Object.keys(formik.errors).length}
+        />
+      </form>
     </div>
   );
 }

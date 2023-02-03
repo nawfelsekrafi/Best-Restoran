@@ -16,15 +16,29 @@ const onSubmit = (values) => {
 const validate = (values) => {
   let errors = {};
   errors.email = [];
+  errors.password = [];
 
   if (
-    values.email &&
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    (values.email &&
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) ||
+    !values.email
   ) {
     errors.email.push({
       status: "error",
       text: "Lütfen geçerli bir e-posta adresi girin.",
     });
+  }
+
+  if (!values.password) {
+    errors.password.push({
+      status: "error",
+      text: "Lütfen bir şifre girin",
+    });
+  }
+
+  if (!errors.email.length && !errors.password.length) {
+    delete errors.email;
+    delete errors.password;
   }
   return errors;
 };
@@ -50,8 +64,6 @@ export default function Login() {
     setIsForgetPasswordModalOpened(false);
   };
 
-  console.log("Form errors", formik.errors);
-
   return (
     <>
       <div className="login_page">
@@ -70,6 +82,9 @@ export default function Login() {
               onChange={formik.handleChange}
               page="login"
               name="email"
+              status={
+                formik.errors.email?.length && formik.errors.email[0].status
+              }
               statusTexts={formik.errors.email}
             />
             <TextInput
@@ -80,6 +95,11 @@ export default function Login() {
               key="login-password"
               page="login"
               name="password"
+              status={
+                formik.errors.password?.length &&
+                formik.errors.password[0].status
+              }
+              statusTexts={formik.errors.password}
             />
           </div>
           <div className="check_with_password">
@@ -95,7 +115,11 @@ export default function Login() {
             </span>
           </div>
           <RecaptchaV2 />
-          <Button label="Giriş Yap" type="submit" />
+          <Button
+            label="Giriş Yap"
+            type="submit"
+            disabled={Object.keys(formik.errors).length}
+          />
           <span className="description-2">
             Sisteme giriş yaparken bir sorun ile karşılaşıyorsanız lütfen{" "}
             <span className="email">yemekoperasyonekibi@migrosonline.com</span>{" "}
