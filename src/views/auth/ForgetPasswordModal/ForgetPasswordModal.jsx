@@ -1,20 +1,50 @@
 import { useEffect, useState } from "react";
+import { useFormik } from "formik";
 import Button from "../../../shared/components/Button";
 import RecaptchaV2 from "../../../shared/components/RecaptchaV2";
 import TextInput from "../../../shared/components/TextInput";
 import closeIcon from "../../../assets/icons/close.svg";
 import checkIcon from "../../../assets/icons/check.svg";
 
+const initialValues = {
+  email: "",
+};
+const onSubmit = (values) => {
+  console.log("Form data", values);
+};
+const validate = (values) => {
+  let errors = {};
+  errors.email = [];
+
+  if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
+    errors.email.push({
+      status: "error",
+      text: "Lütfen geçerli bir e-posta adresi girin.",
+    });
+  }
+  return errors;
+};
+
 function ForgetPasswordModal({ isOpen, closeModal }) {
-  useEffect(() => {
-    document.title = "Şifremi Unuttum | Restoran";
-  }, []);
   const [emailSent, setEmailSent] = useState(false);
   const [timeToWait, setTimeToWait] = useState(179);
   const [time, setTime] = useState({
     minutes: 0,
     seconds: 179,
   });
+
+  const formik = useFormik({
+    initialValues,
+    onSubmit,
+    validate,
+  });
+
+  useEffect(() => {
+    document.title = "Şifremi Unuttum | Restoran";
+  }, []);
 
   const handleClick = () => {
     setEmailSent(true);
@@ -57,7 +87,15 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
                 Yeni şifrenizi yenileme bağlantısını gönderebileceğimiz sisteme
                 kayıtlı e-posta adresinizi yazınız.
               </span>
-              <TextInput label="E-posta Adresi" />
+              <TextInput
+                label="E-posta Adresi"
+                page="forgetPassword"
+                value={formik.values.email}
+                key="forgetPassword-email"
+                name="email"
+                onChange={formik.handleChange}
+                statusTexts={formik.errors.email}
+              />
               <RecaptchaV2 />
             </>
           ) : (
@@ -66,7 +104,9 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
                 <img src={checkIcon} alt="" />
                 <span>
                   Şifre yenileme bağlantısı <br />
-                  <span className="email">murat.golcu@migros.com.tr </span>
+                  <span className="email">
+                    {formik.values.email + " " || "murat.golcu@migros.com.tr "}
+                  </span>
                   e-posta adresinize <br />
                   başarıyla gönderilmiştir.
                 </span>

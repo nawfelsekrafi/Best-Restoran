@@ -1,11 +1,12 @@
-function Button({ label, onClick, isDisabled }) {
+function Button({ label, onClick, isDisabled, type }) {
   return (
-    <div
+    <button
       className={isDisabled ? "button_container disabled" : "button_container"}
       onClick={onClick}
+      type={type}
     >
       <span className="label">{label || "button"}</span>
-    </div>
+    </button>
   );
 }
 

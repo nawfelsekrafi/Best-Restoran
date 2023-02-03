@@ -1,5 +1,6 @@
 @use "./../../../assets/styles/base" as *;
 .button_container {
+  border: none;
   background: $primary-green;
   display: flex;
   align-items: center;

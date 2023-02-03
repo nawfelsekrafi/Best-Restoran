@@ -13,18 +13,22 @@ function TextInput({
   readOnly,
   secure,
   statusTexts,
+  onChange,
+  page,
+  name,
 }) {
   const [passwordShowen, setPasswordShowen] = useState(!secure);
   return (
-    <div className={"input_container " + status}>
-      <label htmlFor={label + "TextInput"}>{label || "Label"}</label>
+    <div className={"input_container " + (status || "normal")}>
+      <label htmlFor={label + "TextInput" + page}>{label || "Label"}</label>
       <div>
         <input
           type={secure && !passwordShowen ? "password" : "text"}
-          id={label + "TextInput"}
+          id={label + "TextInput" + page}
+          name={name}
           value={value || ""}
           placeholder={placeholder || ""}
-          onChange={(e) => {}}
+          onChange={onChange}
         />
         {secure && (
           <span
@@ -38,7 +42,7 @@ function TextInput({
       {withHelper && <span className="helper_text">{helperText}</span>}
       {statusText && <StatusText status={status} text={statusText} />}
 
-      {statusTexts?.length && (
+      {statusTexts && (
         <div className="statusTexts">
           {statusTexts.map((st, index) => (
             <StatusText
