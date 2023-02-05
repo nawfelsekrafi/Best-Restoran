@@ -1,0 +1,31 @@
+@use "./../../../assets/styles/base" as *;
+.navbar_notifications_box {
+  display: flex;
+  height: 56px;
+  width: 212px;
+  align-items: center;
+  justify-content: space-between;
+  .bell_icon {
+    margin-right: 24px;
+    cursor: pointer;
+  }
+  .username_role {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .username {
+      @include bold-small-1;
+      color: $typography-text-1;
+      line-height: 28px;
+    }
+    .role {
+      @include small-1;
+      color: $typography-text-3;
+      line-height: 28px;
+    }
+  }
+  .down_up_icon {
+    margin-left: 12px;
+    cursor: pointer;
+  }
+}
