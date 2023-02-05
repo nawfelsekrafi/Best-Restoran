@@ -1,61 +1,46 @@
+@use "./../../../assets/styles/base" as *;
 .not__found__container {
-  > svg {
-    max-width: 100%;
-  }
+  width: 100vw;
+  height: 100vh;
+  padding: 50px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
-  padding: 35px 20px;
-  @media only screen and (max-width: 860px) {
-    justify-content: center;
-    margin-top: 80px;
-    padding-top: 0;
-  }
-  & > p {
-    font-weight: 300;
-    font-size: 25px;
-    line-height: 38px;
-    text-align: center;
-    color: #aeaeae;
-    @media only screen and (max-width: 730px) {
-      font-size: 20px;
-      line-height: 28px;
-    }
-    @media only screen and (max-width: 560px) {
-      font-size: 15px;
-    }
-    @media only screen and (max-width: 400px) {
-      font-size: 13px;
-    }
-  }
-  & > a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 400;
-    font-size: 16px;
+  justify-content: center;
+  .title {
+    @include heading-9;
+    color: $typography-text-1;
     line-height: 24px;
-    color: #30c1d9;
-    text-decoration: none;
-    border: 1px solid #30c1d9;
-    border-radius: 12px;
-    max-width: 321px;
+    margin-bottom: 10px;
+  }
+  .description {
+    @include body-2;
+    color: $typography-text-1;
+    line-height: 31px;
+    margin-bottom: 24px;
+  }
+  .button {
+    width: 360px;
+    margin-bottom: 16px;
+  }
+  svg {
     width: 100%;
-    padding: 10px 10px;
-    margin-top: 20px;
-    cursor: pointer;
-    &:hover {
-      background-color: #30c1d9;
-      color: white;
-      transition: all 0.3s;
-    }
-    @media only screen and (max-width: 560px) {
-      font-size: 15px;
-    }
-    @media only screen and (max-width: 400px) {
-      font-size: 13px;
-      margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .not__found__container {
+    padding: 25px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .not__found__container {
+    padding: 25px 10px;
+    width: 100%;
+    justify-content: flex-start;
+    .button {
+      width: 100%;
     }
   }
 }
