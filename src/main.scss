@@ -5,6 +5,8 @@
 @use "./layouts/MainLayout";
 @use "./layouts/GuestLayout";
 @use "./layouts/AuthLayout";
+@use "./layouts/Sidebar";
+@use "./layouts/Navbar";
 
 // Components
 @use "./shared/components/NotFound";
@@ -13,8 +15,12 @@
 @use "./shared/components/RecaptchaV2";
 @use "./shared/components/Button";
 @use "./shared/components/StatusText";
+@use "./shared/components/NavbarNotificationsBox";
+@use "./shared/components/Switch";
+@use "./shared/components/SideMenu";
 
 // Views
 @use "./views/auth/Login";
 @use "./views/auth/ResetPassword";
 @use "./views/auth/ForgetPasswordModal";
+@use "./views/Home";
