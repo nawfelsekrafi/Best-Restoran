@@ -25,6 +25,24 @@ const RoutesProvider = () => {
           {/* Users Routes */}
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomeView />} />
+            <Route path="Ana-Sayfa" element={<HomeView />} />
+            <Route path="Siparişler" element={<HomeView />} />
+            <Route path="Siparişler/Onay-Bekleyenler" element={<HomeView />} />
+            <Route path="Siparişler/Aktif-Siparişler" element={<HomeView />} />
+            <Route path="Siparişler/Geçmiş-Siparişler" element={<HomeView />} />
+            <Route path="Menü-İşlemleri" element={<HomeView />} />
+            <Route path="Menü-İşlemleri/Menü" element={<HomeView />} />
+            <Route path="Menü-İşlemleri/Malzemeler" element={<HomeView />} />
+            <Route path="Menü-İşlemleri/Opsiyonlar" element={<HomeView />} />
+            <Route path="Ürün-İşlemleri" element={<HomeView />} />
+            <Route path="Restoran-Değerlendirmesi" element={<AboutView />} />
+            <Route path="Restoran-Bölgesi-Aç/Kapa" element={<AboutView />} />
+            <Route path="Ödeme-Yöntemleri" element={<AboutView />} />
+            <Route path="Çalışma-aatleri" element={<AboutView />} />
+            <Route path="Muhasebe" element={<AboutView />} />
+            <Route path="Restoran-Bilgileri" element={<AboutView />} />
+            <Route path="Talepler" element={<AboutView />} />
+            <Route path="Canlı-Yardım" element={<AboutView />} />
             <Route path="about" element={<AboutView />} />
           </Route>
           {/* Uncreated Routes */}
