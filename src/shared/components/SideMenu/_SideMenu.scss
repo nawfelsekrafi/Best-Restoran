@@ -1,0 +1,103 @@
+@use "./../../../assets/styles/base" as *;
+.sideMenu_container {
+  background: $bg-3;
+  border-radius: 15px;
+  padding: 12px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+  .label {
+    @include small-2;
+    color: $typography-text-1;
+    line-height: 24px;
+  }
+  .icon1 {
+    display: block;
+  }
+  .icon2 {
+    display: none;
+  }
+  .icon3 {
+    display: block;
+    position: absolute;
+    right: 12px;
+  }
+  .icon4 {
+    display: none;
+    position: absolute;
+    right: 12px;
+  }
+  .icon5 {
+    visibility: hidden;
+  }
+  .number {
+    @include small-2;
+    color: $bg-3;
+    background: $primary-green;
+    position: absolute;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.sideMenu_container--Active {
+    background: $primary-green;
+    .label {
+      color: $typography-text-2;
+    }
+    .icon1 {
+      display: none;
+    }
+    .icon2 {
+      display: block;
+    }
+    .icon3 {
+      display: none;
+      position: absolute;
+      right: 12px;
+    }
+    .icon4 {
+      transform: rotate(180deg);
+      display: block;
+      position: absolute;
+      right: 12px;
+    }
+    .number {
+      background: $bg-3;
+      color: $primary-green;
+    }
+  }
+  &:hover {
+    background: $primary-green;
+    .label {
+      color: $typography-text-2;
+    }
+    .icon1 {
+      display: none;
+    }
+    .icon2 {
+      display: block;
+    }
+    .icon3 {
+      display: none;
+      position: absolute;
+      right: 12px;
+    }
+    .icon4 {
+      transform: rotate(180deg);
+      display: block;
+      position: absolute;
+      right: 12px;
+    }
+    .number {
+      background: $bg-3;
+      color: $primary-green;
+    }
+  }
+}
