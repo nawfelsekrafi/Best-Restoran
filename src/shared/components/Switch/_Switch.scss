@@ -1,0 +1,51 @@
+@use "./../../../assets/styles/base" as *;
+:root {
+  --toggle__container-height: 29px;
+  --toggle__container-width: 49px;
+  --toggle__circle-width: 19px;
+  --circle-margin: 5px;
+  --timing-animation: 0.3s;
+}
+.switch_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  .label {
+    @include small-2;
+    color: $typography-text-1;
+  }
+}
+.toggle__container {
+  background: $bg-1;
+  width: var(--toggle__container-width);
+  height: var(--toggle__container-height);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all var(--timing-animation);
+}
+.toggle__container--isActive {
+  background: $system-success;
+}
+.toggle__circle {
+  position: absolute;
+  background: $bg-2;
+  width: var(--toggle__circle-width);
+  height: var(--toggle__circle-width);
+  border-radius: 50%;
+  box-shadow: -2px 4px 3px rgba(0, 0, 0, 0.05);
+  left: var(--circle-margin);
+  transition: all var(--timing-animation);
+}
+.toggle__container--isActive .toggle__circle {
+  left: calc(
+    var(--toggle__container-width) - var(--toggle__circle-width) -
+      var(--circle-margin)
+  );
+  background: white;
+}
