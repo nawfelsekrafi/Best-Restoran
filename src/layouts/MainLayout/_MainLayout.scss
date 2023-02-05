@@ -1,0 +1,9 @@
+.main_layout {
+  display: flex;
+  .main {
+    display: flex;
+    flex-direction: column;
+    width: 81.12%;
+    padding: 24px 24px 0px 16px;
+  }
+}
