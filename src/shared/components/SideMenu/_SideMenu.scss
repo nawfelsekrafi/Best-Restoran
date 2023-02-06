@@ -9,6 +9,7 @@
   gap: 12px;
   cursor: pointer;
   position: relative;
+  transition: all 0.3s ease;
   .label {
     @include small-2;
     color: $typography-text-1;
@@ -100,4 +101,61 @@
       color: $primary-green;
     }
   }
+}
+
+@media only screen and (max-width: 700px) {
+  .sideMenu_container:hover {
+    background: $bg-3;
+    .label {
+      color: $typography-text-1;
+    }
+    .icon1 {
+      display: block;
+    }
+    .icon2 {
+      display: none;
+    }
+    .icon3 {
+      display: block;
+      position: absolute;
+      right: 12px;
+    }
+    .icon4 {
+      display: none;
+      position: absolute;
+      right: 12px;
+    }
+    .icon5 {
+      visibility: hidden;
+    }
+    .number {
+      color: $bg-3;
+      background: $primary-green;
+    }
+  }
+}
+
+.children {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: height 0.3s linear 0s, visibility 0.3s ease 0s,
+    opacity 0.3s ease 0s;
+  margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  > div:first-child {
+    margin-top: 4px;
+  }
+}
+.children--3--isActive {
+  height: 150px;
+  visibility: visible;
+  opacity: 1;
+}
+.children--5--isActive {
+  height: 260px;
+  visibility: visible;
+  opacity: 1;
 }
