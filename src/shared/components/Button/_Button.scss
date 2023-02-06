@@ -23,4 +23,14 @@
   &:active {
     background: #146569;
   }
+  &.empty {
+    .label {
+      @include small-1;
+      color: $primary-green;
+      line-height: 28px;
+    }
+
+    background: transparent;
+    border: 1px solid $primary-green;
+  }
 }

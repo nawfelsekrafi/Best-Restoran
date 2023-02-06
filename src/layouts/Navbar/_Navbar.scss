@@ -8,6 +8,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .sidebarIcon {
+    display: none;
+  }
+  .restoran_logo {
+    display: none;
+  }
   .page_name {
     @include heading-9;
     color: $typography-text-1;
@@ -19,5 +25,43 @@
     height: 100%;
     width: fit-content;
     padding: 16px 0px 16px 48px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .navbar_container {
+    padding: 0px 24px;
+    .sidebarIcon {
+      display: block;
+      padding-right: 24px;
+      width: 80px;
+      border-right: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    .notification_admin {
+      padding: 0px;
+      margin-right: 0px;
+      padding-left: 24px;
+      display: flex;
+      align-items: center;
+      border-left: none;
+
+      .navbar_notifications_box {
+        width: fit-content;
+        .username_role {
+          display: none;
+        }
+      }
+    }
+    .page_name {
+      display: none;
+    }
+    .restoran_logo {
+      display: block;
+      width: fit-content;
+      padding: 0 5px;
+    }
   }
 }

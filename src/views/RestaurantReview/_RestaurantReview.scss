@@ -1,0 +1,51 @@
+@use "./../../assets/styles/base" as *;
+.restorant_review_page {
+  padding: 24px 24px 0px 16px;
+  background: #e5e5e5;
+  .main {
+    background: $bg-3;
+    width: 100%;
+    padding: 24px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .info {
+      padding: 24px;
+      border-radius: 15px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 12px;
+      width: 100%;
+      height: fit-content;
+      background: $bg-4;
+      span {
+        color: $typography-text-1;
+        @include small-1;
+        line-height: 28px;
+        .bold {
+          @include bold-small-1;
+        }
+      }
+    }
+    .filter-2 {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      width: 90%;
+      .btn {
+        margin-left: 3px;
+        width: 168px;
+      }
+    }
+    .excel {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        width: 175px;
+        padding: 12px !important;
+      }
+    }
+  }
+}
