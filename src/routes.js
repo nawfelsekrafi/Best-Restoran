@@ -12,6 +12,7 @@ const RoutesProvider = () => {
   const AboutView = lazy(() => import("./views/About"));
   const LoginView = lazy(() => import("./views/auth/Login"));
   const ResetPassword = lazy(() => import("./views/auth/ResetPassword"));
+  const RestaurantReview = lazy(() => import("./views/RestaurantReview"));
 
   return (
     <BrowserRouter>
@@ -25,7 +26,7 @@ const RoutesProvider = () => {
           {/* Users Routes */}
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomeView />} />
-            <Route path="Ana-Sayfa" element={<HomeView />} />
+            <Route path="Home" element={<HomeView />} />
             <Route path="Siparişler" element={<HomeView />} />
             <Route path="Siparişler/Onay-Bekleyenler" element={<HomeView />} />
             <Route path="Siparişler/Aktif-Siparişler" element={<HomeView />} />
@@ -35,7 +36,7 @@ const RoutesProvider = () => {
             <Route path="Menü-İşlemleri/Malzemeler" element={<HomeView />} />
             <Route path="Menü-İşlemleri/Opsiyonlar" element={<HomeView />} />
             <Route path="Ürün-İşlemleri" element={<HomeView />} />
-            <Route path="Restoran-Değerlendirmesi" element={<AboutView />} />
+            <Route path="Restaurant-Review" element={<RestaurantReview />} />
             <Route path="Restoran-Bölgesi-Aç/Kapa" element={<AboutView />} />
             <Route path="Ödeme-Yöntemleri" element={<AboutView />} />
             <Route path="Çalışma-aatleri" element={<AboutView />} />

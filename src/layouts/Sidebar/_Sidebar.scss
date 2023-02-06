@@ -1,6 +1,7 @@
 @use "./../../assets/styles/base" as *;
 .sidebar_container {
   width: 18.88%;
+  min-width: 246px;
   padding: 24px 16px 0px 24px;
   border-right: 1px solid $bg-2;
   height: 100vh;
@@ -10,9 +11,59 @@
   .restoran_logo {
     width: 76%;
   }
+  .sidebar_header {
+    .closeIcon {
+      display: none;
+    }
+  }
+  .mobile_logo {
+    display: none;
+  }
   .title {
     @include small-3;
     color: $typography-text-3;
     margin-left: 8px;
+  }
+}
+@media only screen and (max-width: 1101px) {
+  .sidebar_container {
+    width: fit-content;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .sidebar_container {
+    .restoran_logo {
+      display: none;
+    }
+    visibility: hidden;
+    position: fixed;
+    padding: 12px 24px;
+    width: 100%;
+    background: rgba(52, 59, 74, 0.9);
+    backdrop-filter: blur(6px);
+    .mobile_logo {
+      display: block;
+    }
+    .title {
+      display: none;
+    }
+    .sidebar_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .closeIcon {
+        display: block;
+      }
+    }
+    z-index: 5;
+    transition: all 0.3s linear;
+    overflow-y: auto;
+    height: 0;
+    &.active {
+      visibility: visible;
+      height: 100vh;
+      overflow-y: scroll;
+      padding-bottom: 90px;
+    }
   }
 }
