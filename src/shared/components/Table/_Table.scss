@@ -1,0 +1,23 @@
+@use "./../../../assets/styles/base" as *;
+.table_container {
+  .header {
+    background: $bg-2;
+    height: 60px;
+    padding: 28px;
+    color: $typography-text-1;
+    @include bold-small-2;
+    border-radius: 15px 15px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    > div {
+      width: 96px;
+    }
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    width: fit-content;
+  }
+}

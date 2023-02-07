@@ -4,12 +4,23 @@ import Button from "../../shared/components/Button";
 import excelIcon from "../../assets/icons/Excel-file.svg";
 import TextInput from "../../shared/components/TextInput";
 import Rating from "../../shared/components/Rating";
+import { reviews } from "./constant";
+import Table from "../../shared/components/Table";
 
-const Home = () => {
+const RestaurantReview = () => {
+  console.log(reviews);
   return (
     <div className="restorant_review_page">
       <div className="filters">
-        <Switch label="Open" value={true} />
+        <TextInput label="Chain Selection" onChange={(e) => console.log(e)} />
+        <TextInput
+          label="Restaurant Selection"
+          onChange={(e) => console.log(e)}
+        />
+        <div className="switch_div">
+          <span>Restaurant</span>
+          <Switch label="Open" value={true} />
+        </div>
       </div>
       <div className="main">
         <div className="info">
@@ -35,9 +46,10 @@ const Home = () => {
         <div className="excel">
           <Button label="Export to Excel" icon={excelIcon} isEmpty={true} />
         </div>
+        <Table dataArray={reviews} />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default RestaurantReview;

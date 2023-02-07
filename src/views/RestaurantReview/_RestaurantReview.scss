@@ -48,4 +48,21 @@
       }
     }
   }
+  .filters {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    width: 90%;
+    margin-bottom: 25px;
+    .switch_div {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      justify-content: flex-start;
+      span {
+        @include small-2;
+        color: $typography-text-1;
+      }
+    }
+  }
 }
