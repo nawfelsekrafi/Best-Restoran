@@ -142,6 +142,7 @@ function ForgetPasswordModal({ isOpen, closeModal }) {
           ) : (
             <Button
               disabled={true}
+              isDisabled={true}
               label={`Tekrar Gönder (${
                 time.minutes < 10 ? "0" + time.minutes : time.minutes
               }:${time.seconds < 10 ? "0" + time.seconds : time.seconds})`}
