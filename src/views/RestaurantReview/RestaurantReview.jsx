@@ -3,6 +3,7 @@ import infoIcon from "../../assets/icons/info.svg";
 import Button from "../../shared/components/Button";
 import excelIcon from "../../assets/icons/Excel-file.svg";
 import TextInput from "../../shared/components/TextInput";
+import Rating from "../../shared/components/Rating";
 
 const Home = () => {
   return (
@@ -19,10 +20,10 @@ const Home = () => {
             <br />
             You can write your questions about the evaluations to{" "}
             <span className="bold">Live Help</span> or send an e-mail to{" "}
-            {/* <span className="bold">support@migrosyemek.com</span>{" "} */}
+            <span className="bold">support@migrosyemek.com</span>{" "}
           </span>
         </div>
-        {/* <Rating rates={[{ 1: 2, 2: 4, 3: 19, 4: 24, 5: 48 }]} /> */}
+        <Rating rates={[{ 1: 2 }, { 2: 4 }, { 3: 19 }, { 4: 24 }, { 5: 48 }]} />
         <div className="filter-2">
           <TextInput label="Sort by" onChange={(e) => console.log(e)} />
           <TextInput label="Starting date" onChange={(e) => console.log(e)} />
