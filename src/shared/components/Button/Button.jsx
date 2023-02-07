@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 
-function Button({ label, onClick, disabled, type, icon, isEmpty }) {
+function Button({ label, onClick, disabled, type, icon, isEmpty, isDisabled }) {
   const btn = useRef(null);
   useEffect(() => {
-    if (disabled) {
+    if (isDisabled) {
       btn.current.classList.add("disabled");
     } else {
       btn.current.classList.remove("disabled");
@@ -13,7 +13,7 @@ function Button({ label, onClick, disabled, type, icon, isEmpty }) {
     } else {
       btn.current.classList.remove("empty");
     }
-  }, []);
+  }, [isDisabled, isEmpty]);
 
   return (
     <button

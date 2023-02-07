@@ -20,7 +20,7 @@
     background: $typography-text-3;
     cursor: not-allowed;
   }
-  &:active {
+  &:not(.disabled):active {
     background: #146569;
   }
   &.empty {
