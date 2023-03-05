@@ -15,6 +15,7 @@
     @include small-1;
     color: $typography-text-2;
     line-height: 28px;
+    transition: all 0.3s ease;
   }
   &.disabled {
     background: $typography-text-3;
@@ -32,5 +33,11 @@
 
     background: transparent;
     border: 1px solid $primary-green;
+    &:not(.disabled):active {
+      background: #146569;
+      .label {
+        color: #fff;
+      }
+    }
   }
 }

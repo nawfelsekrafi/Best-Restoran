@@ -3,12 +3,13 @@
   .header {
     background: $bg-2;
     height: 60px;
-    padding: 28px;
+    padding: 18px 28px;
+    line-height: 24px;
     color: $typography-text-1;
     @include bold-small-2;
     border-radius: 15px 15px 0px 0px;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr) 49%;
     justify-content: space-between;
     > div {
       width: 96px;
@@ -16,9 +17,54 @@
   }
   .item {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr) 49%;
+    padding: 17px 24px;
+    .date_time {
+      display: flex;
+      gap: 8px;
+      flex-direction: column;
+      line-height: 24px;
+      @include small-2;
+      color: $typography-text-1;
+    }
+    .star_td {
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+      span {
+        line-height: 24px;
+        @include small-2;
+        color: $typography-text-1;
+      }
+    }
+    .comment_td {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .comment_text {
+      line-height: 24px;
+      @include small-2;
+      color: $typography-text-1;
+      border: 1px solid $typography-text-4;
+      padding: 12px;
+      display: block;
+      border-radius: 15px 15px 15px 0px;
+    }
+    .reply_text {
+      line-height: 24px;
+      @include small-2;
+      color: $typography-text-1;
+      border: 1px solid $primary-green;
+      padding: 12px;
+      display: block;
+      border-radius: 15px 15px 0px 15px;
+    }
   }
   button {
     width: fit-content;
+    padding: 7px 40px;
+    min-width: 168px;
   }
 }

@@ -5,7 +5,7 @@ const reviews = [
     delivery_rate: "4",
     service_rate: "4",
     flavor_rate: "5",
-    comment:
+    comment_text:
       "Honestly, I was a little hesitant as it was my first time ordering. But it was so beautiful, thank you very much. My order came hot. It came quickly even though the location is far away.",
   },
   {
@@ -14,7 +14,7 @@ const reviews = [
     delivery_rate: "4",
     service_rate: "4",
     flavor_rate: "5",
-    comment:
+    comment_text:
       "Honestly, I was a little hesitant as it was my first time ordering. But it was so beautiful, thank you very much. My order came hot. It came quickly even though the location is far away.",
   },
   {
